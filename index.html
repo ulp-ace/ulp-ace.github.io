@@ -81,7 +81,7 @@
 </div>
 <h4 style="color: #4d4d4d; font-size:25px">System Block Diagram</h4>
 <p>The CAR-SVM algorithm is implemented on TI's CC1352 chip (<a href="https://www.ti.com/tool/LAUNCHXL-CC1352R1">LAUNCHXL-CC1352R1</a>) which has ARM Cortex M4F processor working at 48MHz. We have leveraged the TI-RTOS features in-order to have fine-control over the pooling of hardware resources, power and memory optimizations.</p>
-<p><img src="/assets/img/fine_borders_hwcc13.png" width="800px" length="1200px;" class="center" /></p>
+<p><img src="/assets/img/fine_borders_hwCC13.png" width="800px" length="1200px;" class="center" /></p>
 <p><a href="https://www.adafruit.com/product/3492">Adafruit PDM MEMS Microphone</a> is used to capture the audio signals and it is interfaced with PDM drivers (Thread 1) and programmed to work at 1MHz sampling rate, decimated to 8KHz to get the PCM samples of the respective audio, these PCM samples are fed into accoutics classifier running on a different thread (Thread 2) using TI-RTOS. Since we have a single ARM core, these two threads are switching between each other, to eloborate, microphone collects 32 samples at one go, the accoutics classifier processes these 32 samples and goes to IDLE state before next 32 samples arrive. This process goes on real-time and after 8k samples are processed, a binary decision is made.</p>
 <div class="row">
  <div class="column">
