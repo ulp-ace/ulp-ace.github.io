@@ -62,7 +62,7 @@
 */
 /* =Header *//*************************************************************/
   .header {
-    overflow: hidden; }
+   overflow: hidden ;  }
 
   .navigation {
     float: left; }
@@ -76,9 +76,9 @@
 
   .menu {
     color: #828282;
-    font-size: 150%;
-    margin: 0px;
-    margin-top: 6px;
+    font-size: 130%;
+    margin: 3px;
+    margin-top: 33px;
     padding: 0px;
     list-style-type: none; }
 
