@@ -64,7 +64,7 @@
   margin-right: auto;
   width: 50%;
 }
-#hp  {
+hp {
 float: right;    
 margin: 0 0 0 15px;
 }
@@ -72,9 +72,9 @@ figcaption {
   background-color: #4d4d4d;
   color: white;
   padding: 2px;
-  margin-bottom: 7px;
+  margin-bottom: 5px;
   text-align: center;
-  width: 50%;
+  width: 100%;
   float: relative;
 }
 figure {
@@ -86,16 +86,18 @@ figure {
 <h2 style="text-align: left; color: #4d4d4d; font-size:25px ">Ultra-low Power Acoustic Classifier for Edge Devices</h2>
 <p>ULP-ACE aims to design a deployable system at edge to detect and classify the audio signatures with ultra-low, ultra-light accoutic classifier. We have used TI's CC1352 as a demonstration chip which has ARM Cortex M4F processor and supports TI-RTOS. The application consumes <a style="background-color: #FF9999 ">49KB of FLASH</a>, <a style="background-color: #FFFF99 "> 17KB of SRAM</a> and <a style="background-color: #99FF99">5.5mW of MEAN POWER</a> which is measured with Energy Trace (powered by TI) for Dingo detection on edge.</p>
 <h4 style="color: #4d4d4d; font-size:25px">CAR-SVM</h4>
-<p><img src="/assets/img/FD_BW_bold.png" width="650px" length="850px" id="hp" /></p>
-<figcaption style="float: right">Fig 1. Functional diagram of CAR-SVM</figcaption>
+<hp>
+<img src="/assets/img/FD_BW_bold.png" width="650px" length="850px" />
+<figcaption>Fig 1. Functional diagram of CAR-SVM</figcaption>
+</hp>
 <p>The CAR-IHC is the part of the Digital Neuromorphic Cochlea, performs certain amount of pre-processing of audio to extract salient features which will be used to train and test the SVM model. The audio samples passes through the CAR block which are band pass filters, output of these CAR filers are the frequency components present in corresponding filter frequency band for every sample, This component pases thrugh IHC blocks and summed for Fs samples (1 second duration), this summed energy component will be normalized in the range of 0 to 1 and this computed template output vector of normalized block after processing for every 1 second duration will be passed next to train and test the model.
   For different application, tunable parameters such as sampling frequency, low and high threshold of interested frquency band,   number of cascaded filters and selection of range of these cascaded filters (channels) to train the model will be adjusted according to interested frequency bands of targeted classes. We use one-against-all (OAA) approach for the training.
   The dataset used for the training should be recorded through the microphone to generalize the effects of microphone channel in the training.</p>
 <h4 style="color: #4d4d4d; font-size:25px">System Implementation</h4>
 <p>The CAR-SVM algorithm is implemented on TI's CC1352 chip (<a href="https://www.ti.com/tool/LAUNCHXL-CC1352R1">LAUNCHXL-CC1352R1</a>) which has ARM Cortex M4F processor working at 48MHz. We have leveraged the TI-RTOS features in-order to have fine-control over the pooling of hardware resources, power and memory optimizations.</p>
+<p><a href="https://www.adafruit.com/product/3492">Adafruit PDM MEMS Microphone</a> is used to capture the audio signals and it is interfaced with PDM drivers (Thread 1) and programmed to work at 1MHz sampling rate, decimated to 8KHz to get the PCM samples of the respective audio, these PCM samples are fed into accoutics classifier running on a different thread (Thread 2) using TI-RTOS. Since we have a single ARM core, these two threads are switching between each other, to eloborate, microphone collects 32 samples at one go, the accoutics classifier processes these 32 samples and goes to IDLE state before next 32 samples arrive. This process goes on real-time and after 8k samples are processed, a binary decision is made.</p>
 <p><img src="/assets/img/fine_borders_hwCC13.png" width="800px" length="1200px;" class="center" /></p>
 <figcaption class="center">Fig 2. System Block Diagram</figcaption>
-<p><a href="https://www.adafruit.com/product/3492">Adafruit PDM MEMS Microphone</a> is used to capture the audio signals and it is interfaced with PDM drivers (Thread 1) and programmed to work at 1MHz sampling rate, decimated to 8KHz to get the PCM samples of the respective audio, these PCM samples are fed into accoutics classifier running on a different thread (Thread 2) using TI-RTOS. Since we have a single ARM core, these two threads are switching between each other, to eloborate, microphone collects 32 samples at one go, the accoutics classifier processes these 32 samples and goes to IDLE state before next 32 samples arrive. This process goes on real-time and after 8k samples are processed, a binary decision is made.</p>
 <div class="row">
  <div class="column">
  <h4 style="color: #4d4d4d; font-size:25px">Current Work and Future Aspirations</h4>
