@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8" /> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--\<meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<link rel="canonical" href="/deployment">
+<meta property="og:url" content="/deployment">
+<meta property="og:site_name" content="/">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon.png">
+<title>ULP-ACE</title>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.3.2/build/styles/default.min.css">
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.3.2/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link rel="icon" type="image/jpeg" href="/favicon.png"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="/assets/css/main.css">
+<!--pudhina-fresh-jekyll-sun-chocolate-ruby-v-2021-02-22-->
+<div class="wrapper">
+<header class="header">
+<div class="navigation">
+<style>
+.headerx img {
+  float: left;
+  width: 100px;
+  height: 100px;
+}
+.headerx h1 {
+  position: relative;
+  top: 8px;
+  left: 10px;
+}
+</style>
+<div class="headerx">
+  <img src="/assets/img/logo.png" alt="logo" width="90px" length="90px">
+ <h1>ULP-ACE</h1>
+</div>
+<ul class="menu">
+<li class="menu__entry"><a href="/" style = "color: #4d4d4d">About</a>
+<li class="menu__entry"><a href="/resources" style = "color:  #4d4d4d">Resources</a>
+<li class="menu__entry"><a href="/applications" style = "color:  #4d4d4d">Applications</a>
+<li class="menu__entry"><a href="/deployment" style = "color:  #4d4d4d">Deployment</a>
+<li class="menu__entry"><a href="/team" style = "color:  #4d4d4d">Team</a>
+</ul>
+</div>
+</header>
+<br>
+<style>
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+hp {
+float: right;    
+margin: 0 0 0 15px;
+}
+</style>
+<div class="row">
+ <div class="column">
+<h3 style = "color: #4d4d4d; font-size:25px; text-align: left">Deployment on AudioMoth</h3>
+<p> The deployment for ULP-ACE is planned to detect bird chirps at Indian Institute of Science (IISc). For deployment purposes, we have written integrated firmware for AudioMoth (widely used for data logging in ecological studies) incorporating the ULP-ACE into audiomoth_firmware_basic. We have trained the model with cuckoo bird sounds using the the framework and the working demonstration is given on the right.</p>
+<p>The setup is estimated to sustain for 30 days with 3 AAA batteries. The firmware code, hardware and software requirements and how to port it in the AudioMoth are given in the <a href="https://github.com/HemanthSabbella/ULP-ACE/tree/main/deployment">GitHub repo</a></p>
+</div>
+<div class="column"> 
+<h3 style = "color: #4d4d4d; font-size:25px;">Cuckoo detection:</h3>
+<video width="95%" height="350"  controls>
+  <source src="assets/img/cuckoo_detection.mp4" type="video/mp4">
+</video>
+</div>
+</div>
+<br>
+<br>
+</div>
