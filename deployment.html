@@ -47,6 +47,15 @@
 </div>
 </header>
 <br>
+<script src="http://maps.google.com/maps/api/js"></script>
+  <script src="gmaps.js"></script>
+ <style type="text/css">
+    #map {
+      width: 600px;
+      height: 400px;
+      float: center;
+    }
+ </style>
 <style>
 .column {
   float: left;
@@ -74,7 +83,7 @@ margin: 0 0 0 15px;
  <div class="column">
 <h3 style = "color: #4d4d4d; font-size:25px; text-align: left">Deployment on AudioMoth</h3>
 <p> The deployment for ULP-ACE is planned to detect bird chirps at Indian Institute of Science (IISc). For deployment purposes, we have written integrated firmware for AudioMoth (widely used for data logging in ecological studies) incorporating the ULP-ACE into audiomoth_firmware_basic. We have trained the model with cuckoo bird sounds using the the framework and the working demonstration is given on the right.</p>
-<p>The setup is estimated to sustain for 30 days with 3 AAA batteries. The firmware code, hardware and software requirements and how to port it in the AudioMoth are given in the <a href="https://github.com/HemanthSabbella/ULP-ACE/tree/main/deployment">GitHub repo</a></p>
+<p>The setup is estimated to sustain for 30 days with 3 AA batteries. The firmware code, hardware and software requirements and how to port it in the AudioMoth are given in the <a href="https://github.com/HemanthSabbella/ULP-ACE/tree/main/deployment">GitHub repo</a></p>
 </div>
 <div class="column"> 
 <h3 style = "color: #4d4d4d; font-size:25px;">Cuckoo detection:</h3>
@@ -82,6 +91,15 @@ margin: 0 0 0 15px;
   <source src="assets/img/cuckoo_detection.mp4" type="video/mp4">
 </video>
 </div>
+<h3 style = "color: #4d4d4d; font-size:25px; text-align: left">Birds detected at IISc will be tagged on Google Maps API soon!</h3>
+<div id="map"></div>
+  <script>
+    var map = new GMaps({
+      el: '#map',
+      lat: 13.0165,
+      lng:  77.5671
+    });
+  </script>
 </div>
 <br>
 <br>
